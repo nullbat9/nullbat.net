@@ -30,3 +30,13 @@ a {
 a:hover {
   color: #87ceeb;
 }
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.gallery img {
+  width: 150px;
+  height: auto;
+}
