@@ -18,12 +18,36 @@
     <h1>Splatoon</h1>
     
     <div class="page-content">
-      <h2>Clips and stats</h2>
-      <p>
-        Splatana wiper main. On team Project X-Ray.
-      </p>
+      <div id="sendou-data">
+        <p>Loading your Sendou.ink data...</p>
+      </div>
       
       <a href="/index.html" class="back-btn">← Back to Home</a>
     </div>
+    
+    <script>
+      // Replace 'YOUR_SENDOU_ID' with your actual Sendou.ink player ID
+      const SENDOU_ID = 477209932526256129;
+      
+      async function loadSendouData() {
+        try {
+          const response = await fetch(`https://sendou.ink/api/players/${SENDOU_ID}`);
+          const data = await response.json();
+          
+          const container = document.getElementById('sendou-data');
+          container.innerHTML = `
+            <h2>${data.player.username}</h2>
+            <p>Level: ${data.player.level}</p>
+            <p>Rank: ${data.player.rank}</p>
+            <p>Bio: ${data.player.bio || 'No bio set'}</p>
+          `;
+        } catch (error) {
+          document.getElementById('sendou-data').innerHTML = '<p>Unable to load Sendou.ink data. Check your player ID.</p>';
+          console.error('Error:', error);
+        }
+      }
+      
+      loadSendouData();
+    </script>
   </body>
 </html>
