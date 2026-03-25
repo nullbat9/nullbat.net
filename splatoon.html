@@ -6,8 +6,11 @@
     <title>Splatoon - nullbat.net</title>
   </head>
   <body>
+    <div class="title-row">
+      <img src="/images/nullbat9logo.png" alt="nullbat9 logo" class="logo">
+      <h1>nullbat9</h1>
+    </div>
     <script src="script.js"></script>
-    <img src="/images/nullbat9logo.png" alt="nullbat9 logo" class="logo">
     
     <nav class="navbar">
       <a href="/index.html" class="nav-link">Home</a>
@@ -15,38 +18,6 @@
       <a href="/lego.html" class="nav-link">Lego</a>
     </nav>
     
-    <h1>Splatoon</h1>
     under construction, check back later!
-    <div class="page-content">
-      <div id="sendou-data">
-        <p>Loading your Sendou.ink data...</p>
-      </div>
-      
-      <a href="/index.html" class="back-btn">← Back to Home</a>
-    </div>
-    <script>
-      // Replace 'YOUR_SENDOU_ID' with your actual Sendou.ink player ID
-      const SENDOU_ID = '477209932526256129';
-      
-      async function loadSendouData() {
-        try {
-          const response = await fetch(`https://sendou.ink/api/players/${SENDOU_ID}`);
-          const data = await response.json();
-          
-          const container = document.getElementById('sendou-data');
-          container.innerHTML = `
-            <h2>${data.player.username}</h2>
-            <p>Level: ${data.player.level}</p>
-            <p>Rank: ${data.player.rank}</p>
-            <p>Bio: ${data.player.bio || 'No bio set'}</p>
-          `;
-        } catch (error) {
-          document.getElementById('sendou-data').innerHTML = '<p>Unable to load Sendou.ink data. Check your player ID.</p>';
-          console.error('Error:', error);
-        }
-      }
-      
-      loadSendouData();
-    </script>
   </body>
 </html >
